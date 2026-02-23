@@ -1,0 +1,24 @@
+<<comm1
+      Accept a number from user. Apply following validations while accepting the
+      number.
+      1. Input should not be empty.
+      2. Alphabets are not allowed using (using regular expression)
+      3. The number should be a positive integer (using regular expression)
+      If the number is valid then display the message ‘Number is Valid’ otherwise display
+      the error message accordingly.
+comm1
+#!/bin/bash
+read -p "Please enter a number: " user_input
+if [ -z "$user_input" ]; then
+    echo "Error: Input should not be empty."
+    exit 1
+fi
+if echo "$user_input" | grep -q "[a-zA-Z]"; then
+    echo "Error: Alphabets are not allowed."
+    exit 1
+fi
+if ! echo "$user_input" | grep -q "^[0-9]\+$"; then
+    echo "Error: The number must be a positive integer."
+    exit 1
+fi
+echo "Number is Valid"
