@@ -1,0 +1,18 @@
+<<comm1
+    Accept ‘n’ numbers from user and print sum of only even numbers.
+comm1
+#!/bin/sh
+echo "Enter how many numbers you wanted: "
+read number
+sum=0
+i=1
+echo "Enter the $number numbers one by one:"
+while [ $i -le $number ]
+do
+  read num
+  if [ $((num % 2)) -eq 0 ]; then
+    sum=$((sum + num))
+  fi
+  i=$((i + 1))
+done
+echo "The sum of only even numbers is: $sum"
