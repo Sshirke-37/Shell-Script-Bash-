@@ -1,0 +1,24 @@
+<<comm1
+       Accept price of a product and quantity of the product user has purchased. If bill
+      amount is more than 10000 then offer 5% discount, if the bill amount is more than
+      15000 then offer 7% discount. Otherwise, no discount will be applied.
+comm1
+#!/bin/bash
+read -p "Enter the price of the product: " price
+read -p "Enter the quantity purchased: " qty
+bill_amount=$(( price * qty ))
+echo "Total Bill Amount: $bill_amount"
+if [ $bill_amount -gt 15000 ]; then
+    discount_rate=7
+    discount_amount=$(( (bill_amount * 7) / 100 ))
+elif [ $bill_amount -gt 10000 ]; then
+    discount_rate=5
+    discount_amount=$(( (bill_amount * 5) / 100 ))
+else
+    discount_rate=0
+    discount_amount=0
+fi
+final_bill=$(( bill_amount - discount_amount ))
+echo "Discount Applied: $discount_rate%"
+echo "Discount Amount: $discount_amount"
+echo "Final Payable Amount: $final_bill"
