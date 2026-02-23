@@ -1,0 +1,23 @@
+<<comm1
+    Read lines to be printed from user and generate a pattern given below accordingly.
+1
+0 1 
+0 1 0
+1 0 1 0
+comm1
+#!/bin/bash
+read -p "Enter number of lines: " rows
+counter=1
+for i in $(seq 1 $rows)
+do
+    for j in $(seq 1 $i)
+    do
+        echo -n "$counter "
+              if [ $counter -eq 1 ]; then
+            counter=0
+        else
+            counter=1
+        fi
+    done
+   echo ""
+done
