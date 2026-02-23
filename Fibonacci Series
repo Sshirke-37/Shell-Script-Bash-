@@ -1,0 +1,16 @@
+<<comm1
+    Print first ‘n’ terms of Fibonacci Series.
+comm1
+read -p "Enter the number of terms: " n
+a=0
+b=1
+count=0
+while [ $count -lt $n ]
+do
+    echo -n "$a "
+    temp=$((a + b))
+    a=$b
+    b=$temp
+    count=$((count + 1))
+done
+echo ""
