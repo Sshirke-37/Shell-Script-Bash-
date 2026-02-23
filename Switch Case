@@ -1,0 +1,32 @@
+<<comm1
+      Accept 2 numbers from user and perform arithmetic operations like addition,
+      subtraction, multiplication and division on them. Ask user which operation he want to
+      perform. If he enters ‘Add’ then perform addition, ‘Sub’ for subtraction, ‘Div’ for
+      division, ‘Mult’ for multiplication. Display the result accordingly. Accept the number
+      and operation to be performed from user using command line
+comm1
+#!/bin/sh
+echo "--- Simple Calculator ---"
+echo "Enter the first number: "
+read num1
+echo "Enter the second number: "
+read num2
+echo "Enter the operation(symbol) to perform: "
+read symbol
+case $symbol in
+  +)
+      echo "Addition is : $((num1 + num2))"
+    ;;
+  -)
+      echo "Substraction is: $((num1 - num2))"
+    ;;
+  *)
+      echo "Multiplication is: $((num1 * num2))"
+    ;;
+  /)
+      echo "Division is: $((num1 / num2))"
+    ;;
+  \*)
+    echo "Invalid operation !"
+    ;;
+esac
