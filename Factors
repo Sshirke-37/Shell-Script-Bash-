@@ -1,0 +1,14 @@
+<<comm1
+    Print factors of a given number.
+comm1
+read -p "Enter a number to find its factors: " num
+echo "The factors of $num are:"
+
+for i in $(seq 1 $num)
+do
+    if [ $((num % i)) -eq 0 ]; then
+        printf "$i "
+    fi
+done
+
+echo ""
