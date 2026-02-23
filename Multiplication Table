@@ -1,0 +1,23 @@
+<<comm1
+      Accept 2 numbers from user using the command line and print that much multiple of the number.
+      E.g. 5 6
+      Then the output will be the first 6 multiples of the number.
+      5 10 15 20 25 30
+comm1
+#!/bin/bash
+num=$1
+count=$2
+if [ -z "$num" ] || [ -z "$count" ]; then
+    echo "Usage: $0 <number> <how_many_multiples>"
+    exit 1
+fi
+echo "The first $count multiples of $num are:"
+for i in $(seq 1 $count)
+do
+    result=$(( num * i ))
+    printf "$result "
+done
+echo ""
+
+chmod +x multiples.sh
+./multiples.sh 5 6
